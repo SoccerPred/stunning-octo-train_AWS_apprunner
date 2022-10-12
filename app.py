@@ -38,7 +38,6 @@ def hello_world():
 @app.route('/')
 def main():
     choices = ['Match Result Prediction','Model Performance']
-    ticker = st.sidebar.selectbox('Choose a Page',choices)
     return
 
 
