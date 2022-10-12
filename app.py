@@ -43,11 +43,9 @@ def get_options():
 
 @app.route('/api/options')
 def vote_option():
-    logging.info("Returning options")
-    logging.info("Request received: {}".format(content))
 
     return 
 
 if __name__ == '__main__':
-    print("Hello from DevTalk")
+    print("Hello from")
     app.run(port=APP_PORT, host="0.0.0.0", debug=APP_DEBUG)
