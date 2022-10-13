@@ -6,7 +6,28 @@ import logging
 import json
 from flask.templating import render_template
 import decimal
+
+#------------App Lib----------#
+import pandas as pd
+import numpy as np
+from numpy import loadtxt
+import pickle
+import matplotlib.pyplot as plt
 import streamlit as st
+import xgboost as xgb
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import recall_score, precision_score , accuracy_score ,f1_score
+from func import assign_values_to_team3, assign_values_to_team4, map_inputs_to_data2 , predict_match_result2, predict_match_result_goals
+from func import plot_confusion_matrix, get_team1_stats , get_team2_stats
+from configuration import * 
+
+
+
+
+
+
+
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -37,7 +58,7 @@ def hello_world():
 
 @app.route('/')
 def main():
-    choices = ['Match Result Prediction','Model Performance']
+  
     return
 
 
