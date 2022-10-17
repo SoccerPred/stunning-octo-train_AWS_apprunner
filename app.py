@@ -1,3 +1,4 @@
+from crypt import methods
 from random import choices
 from flask import Flask, request, jsonify
 #import boto3
@@ -37,9 +38,10 @@ Defining all variables that need to be retrieved from environment variables
 APP_AWS_REGION = os.environ['APP_AWS_REGION'] if "APP_AWS_REGION" in os.environ else "us-east-1"
 #APP_DDB_TABLE_NAME = os.environ["APP_DDB_TABLE_NAME"] if "APP_DDB_TABLE_NAME" in os.environ else "apprunner-demo-data"
 APP_PORT = os.environ["APP_PORT"] if "APP_PORT" in os.environ else 9090
+'''
 APP_MODE = os.environ['APP_MODE'] if "APP_MODE" in os.environ else "LOCAL"
 APP_DEBUG = True if APP_MODE == "LOCAL" else False
-'''
+
 
 class DecimalEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -57,15 +59,10 @@ app.json_encoder = DecimalEncoder
 def hello_world():
     return render_template("index.html")
 
-@app.route('/Home')
+@app.route('/', methods=['POST', 'GET'])
 def home():
-  
-    return
+    return render_template("predict.html")
 
-@app.route('/')
-def main():
-  
-    return
 
 '''
 @app.route('/api/options', methods=['GET', 'OPTIONS'])
@@ -81,5 +78,4 @@ def vote_option():
 '''
 
 if __name__ == '__main__':
-    print("Hello from")
     app.run(port=APP_PORT, host="0.0.0.0", debug=APP_DEBUG)
